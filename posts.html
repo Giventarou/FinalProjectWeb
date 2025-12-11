@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts - Blog Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: "Comic Relief", system-ui;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white border-b border-gray-300 shadow-md z-50">
+        <div class="w-full px-4 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-center py-3">
+                <div class="flex items-center mb-3 lg:mb-0">
+                    <img src="images/logoubgk.png" alt="Logo" class="h-10 md:h-12">
+                </div>
+                <div class="flex flex-col lg:flex-row lg:space-x-3 w-full lg:w-auto">
+                    <a href="index.html" class="bg-white px-6 py-2 text-center hover:bg-blue-50 transition duration-300 text-sm w-full lg:w-auto">Home</a>
+                    <a href="biodata.html" class="bg-white px-6 py-2 text-center hover:bg-blue-50 transition duration-300 text-sm w-full lg:w-auto">Biodata</a>
+                    <a href="contact_us.html" class="bg-white px-6 py-2 text-center hover:bg-blue-50 transition duration-300 text-sm w-full lg:w-auto">Contact</a>
+                    <a href="posts.html" class="bg-white px-6 py-2 text-center hover:bg-blue-50 transition duration-300 text-sm w-full lg:w-auto">Posts</a>
+                    <a href="freepage.html" class="bg-white px-6 py-2 text-center hover:bg-blue-50 transition duration-300 text-sm w-full lg:w-auto">Free Page</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-72 md:pt-32 lg:pt-24 py-10 px-4">
+    
+    <div class="max-w-4xl mx-auto">
+        
+        <!-- Header -->
+        <div class="bg-blue-500 text-center py-10 px-6 rounded-lg shadow mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Blog Post Data</h1>
+            <p class="text-lg text-blue-100">Fetching data from JSONPlaceholder API</p>
+        </div>
+
+        <!-- Content Area -->
+        <div id="content">
+            <!-- Loading State -->
+            <div class="text-center py-16">
+                <div class="inline-block w-12 h-12 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin mb-4"></div>
+                <p class="text-lg text-gray-600">Loading post data...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-8 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="text-gray-700 text-sm mb-4 md:mb-0 text-center md:text-left">
+                <p>Copyright 2025 Takeshi Oka</p>
+                <p class="mt-2">
+                    大阪府大阪市北区同心2-11-12<br>
+                    学校法人岡学園　大阪文化国際学校<br>
+                    TEL:06-6882-1435
+                </p>
+                <div class="mt-4 space-x-4">
+                    <a href="https://fti.unai.edu/" class="text-blue-600 hover:text-blue-800 font-semibold">FTI UNAI →</a>
+                    <a href="https://unai.edu/" class="text-blue-600 hover:text-blue-800 font-semibold">UNAI Website →</a>
+                </div>
+            </div>
+            <div>
+                <img src="images/logopusatobkg.png" alt="Logo" class="w-16 h-16">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 2 digit terakhir NIM kamu: 12
+        const NIM_LAST_TWO_DIGITS = 12;
+        const API_URL = `https://jsonplaceholder.typicode.com/posts/${NIM_LAST_TWO_DIGITS}`;
+
+        const contentDiv = document.getElementById('content');
+
+        // Fungsi untuk mengambil data dari API
+        function fetchPost() {
+            fetch(API_URL)
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error('Data tidak ditemukan');
+                    }
+                    return response.json();
+                })
+                .then(function(post) {
+                    displayPost(post);
+                })
+                .catch(function(error) {
+                    displayError(error.message);
+                });
+        }
+
+        // Fungsi untuk menampilkan post
+        function displayPost(post) {
+            const postHTML = `
+                <!-- Post Card -->
+                <div class="bg-white rounded-lg shadow p-6 md:p-8 mb-8">
+                    
+                    <!-- Post Header -->
+                    <div class="flex items-center gap-4 mb-6 pb-4 border-b-2 border-gray-200">
+                        <div class="w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                            ${post.id}
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-semibold">Post ID</p>
+                            <p class="text-lg font-bold text-gray-800">#${post.id}</p>
+                        </div>
+                    </div>
+
+                    <!-- Post Title -->
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                        ${post.title}
+                    </h2>
+
+                    <!-- Post Body -->
+                    <div class="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
+                        ${post.body}
+                    </div>
+
+                    <!-- Post Info -->
+                    <div class="bg-gray-100 rounded-lg p-4 flex flex-col md:flex-row gap-4 md:gap-8">
+                        <div class="flex-1">
+                            <p class="text-xs text-gray-500 font-bold mb-1">User ID</p>
+                            <p class="text-lg font-bold text-gray-800">${post.userId}</p>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-xs text-gray-500 font-bold mb-1">Post ID</p>
+                            <p class="text-lg font-bold text-gray-800">${post.id}</p>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-xs text-gray-500 font-bold mb-1">Status</p>
+                            <p class="text-lg font-bold text-green-600">Published</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Back Button -->
+                <div class="text-center">
+                    <a href="index.html" 
+                       class="inline-block bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold
+                              hover:bg-blue-600 transition duration-300 shadow">
+                        ← Back to Home
+                    </a>
+                </div>
+            `;
+
+            contentDiv.innerHTML = postHTML;
+        }
+
+        // Fungsi untuk menampilkan error
+        function displayError(message) {
+            const errorHTML = `
+                <!-- Error Card -->
+                <div class="bg-red-100 border-l-4 border-red-600 rounded-lg p-6 mb-8 text-center">
+                    <div class="text-5xl mb-4">⚠️</div>
+                    <h2 class="text-xl font-bold text-red-800 mb-2">Error: ${message}</h2>
+                    <p class="text-red-700 mb-2">Please check your NIM digits or internet connection.</p>
+                    <p class="text-sm text-red-600">API URL: ${API_URL}</p>
+                </div>
+
+                <!-- Back Button -->
+                <div class="text-center">
+                    <a href="index.html" 
+                       class="inline-block bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold
+                              hover:bg-blue-600 transition duration-300 shadow">
+                        ← Back to Home
+                    </a>
+                </div>
+            `;
+
+            contentDiv.innerHTML = errorHTML;
+        }
+
+        // Panggil fungsi saat halaman dimuat
+        fetchPost();
+    </script>
+
+</body>
+</html>

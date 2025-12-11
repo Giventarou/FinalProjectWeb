@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Comic Relief", system-ui;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body class="bg-blue-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white border-b border-gray-300 shadow-md z-50">
+        <div class="w-full px-4 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-center py-3">
+                <div class="flex items-center mb-3 lg:mb-0">
+                    <img src="images/logoubgk.png" alt="Logo" class="h-10 md:h-12">
+                </div>
+                <div class="flex flex-col lg:flex-row lg:space-x-3 w-full lg:w-auto">
+                    <a href="index.html" class="bg-white px-6 py-2 text-center hover:bg-blue-50 transition duration-300 text-sm w-full lg:w-auto">Home</a>
+                    <a href="biodata.html" class="bg-white px-6 py-2 text-center hover:bg-blue-50 transition duration-300 text-sm w-full lg:w-auto">Biodata</a>
+                    <a href="contact_us.html" class="bg-white px-6 py-2 text-center hover:bg-blue-50 transition duration-300 text-sm w-full lg:w-auto">Contact Us</a>
+                    <a href="posts.html" class="bg-white px-6 py-2 text-center hover:bg-blue-50 transition duration-300 text-sm w-full lg:w-auto">Posts</a>
+                    <a href="freepage.html" class="bg-white px-6 py-2 text-center hover:bg-blue-50 transition duration-300 text-sm w-full lg:w-auto">Free Page</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-64 md:pt-64 lg:pt-28 pb-10 px-5 min-h-screen">
+        <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg">
+            <!-- Header -->
+            <div class="bg-blue-400 text-center py-10 px-10 text-white rounded-t-lg">
+                <h1 class="text-3xl md:text-4xl font-bold mb-2">Student Registration</h1>
+                <p class="text-blue-50 text-lg">Fill in the form below to register</p>
+            </div>
+
+            <!-- Form Wrapper -->
+            <div class="p-6 md:p-10">
+                <!-- Success Message -->
+                <div id="successMessage" class="hidden bg-green-200 text-green-900 p-5 rounded-lg text-center font-bold mb-5 border-l-4 border-green-700">
+                    ✓ Registration successful! Form has been submitted.
+                </div>
+
+                <form id="registrationForm">
+                    <!-- Full Name -->
+                    <div class="mb-6">
+                        <label for="fullName" class="block mb-2 font-bold text-gray-700 text-sm">
+                            Full Name <span class="text-red-600">*</span>
+                        </label>
+                        <input type="text" id="fullName" name="fullName" 
+                            placeholder="Enter your full name"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-md text-base bg-gray-50 focus:outline-none focus:border-blue-400 focus:bg-blue-50 transition-colors">
+                        <div id="fullNameError" class="hidden text-red-600 text-sm mt-1">
+                            Please enter your full name
+                        </div>
+                    </div>
+
+                    <!-- Student ID -->
+                    <div class="mb-6">
+                        <label for="nim" class="block mb-2 font-bold text-gray-700 text-sm">
+                            Student ID (NIM) <span class="text-red-600">*</span>
+                        </label>
+                        <input type="text" id="nim" name="nim" 
+                            placeholder="Enter your Student ID"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-md text-base bg-gray-50 focus:outline-none focus:border-blue-400 focus:bg-blue-50 transition-colors">
+                        <div id="nimError" class="hidden text-red-600 text-sm mt-1">
+                            Please enter your Student ID
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-6">
+                        <label for="email" class="block mb-2 font-bold text-gray-700 text-sm">
+                            Email Address <span class="text-red-600">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" 
+                            placeholder="example@email.com"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-md text-base bg-gray-50 focus:outline-none focus:border-blue-400 focus:bg-blue-50 transition-colors">
+                        <div id="emailError" class="hidden text-red-600 text-sm mt-1">
+                            Please enter a valid email address
+                        </div>
+                    </div>
+
+                    <!-- Faculty -->
+                    <div class="mb-6">
+                        <label for="faculty" class="block mb-2 font-bold text-gray-700 text-sm">
+                            Faculty/Major <span class="text-red-600">*</span>
+                        </label>
+                        <select id="faculty" name="faculty"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-md text-base bg-gray-50 focus:outline-none focus:border-blue-400 focus:bg-blue-50 transition-colors">
+                            <option value="">-- Select Faculty/Major --</option>
+                            <option value="Teknik Informatika">Teknik Informatika</option>
+                            <option value="Sistem Informasi">Sistem Informasi</option>
+                            <option value="Keperawatan">Keperawatan</option>
+                            <option value="Filsafat">Filsafat</option>
+                            <option value="Biologi">Biologi</option>
+                            <option value="Farmasi">Farmasi</option>
+                            <option value="Manajemen">Manajemen</option>
+                            <option value="Akuntansi">Akuntansi</option>
+                            <option value="Digital Bisnis">Digital Bisnis</option>
+                            <option value="Pendidikan Bahasa Inggris">Pendidikan Bahasa Inggris</option>
+                            <option value="Pendidikan Matematika">Pendidikan Matematika</option>
+                        </select>
+                        <div id="facultyError" class="hidden text-red-600 text-sm mt-1">
+                            Please select your Faculty/Major
+                        </div>
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div class="mb-6">
+                        <label for="dob" class="block mb-2 font-bold text-gray-700 text-sm">
+                            Date of Birth <span class="text-red-600">*</span>
+                        </label>
+                        <input type="date" id="dob" name="dob"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-md text-base bg-gray-50 focus:outline-none focus:border-blue-400 focus:bg-blue-50 transition-colors">
+                        <div id="dobError" class="hidden text-red-600 text-sm mt-1">
+                            Please select your date of birth
+                        </div>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="mb-6">
+                        <label class="block mb-2 font-bold text-gray-700 text-sm">
+                            Gender <span class="text-red-600">*</span>
+                        </label>
+                        <div class="flex flex-col md:flex-row gap-5 mt-2">
+                            <div class="flex items-center gap-2">
+                                <input type="radio" id="male" name="gender" value="Male" 
+                                    class="w-5 h-5 cursor-pointer">
+                                <label for="male" class="cursor-pointer font-normal">Male</label>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <input type="radio" id="female" name="gender" value="Female" 
+                                    class="w-5 h-5 cursor-pointer">
+                                <label for="female" class="cursor-pointer font-normal">Female</label>
+                            </div>
+                        </div>
+                        <div id="genderError" class="hidden text-red-600 text-sm mt-1">
+                            Please select your gender
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="mb-6">
+                        <label for="address" class="block mb-2 font-bold text-gray-700 text-sm">
+                            Address <span class="text-red-600">*</span>
+                        </label>
+                        <textarea id="address" name="address" 
+                            placeholder="Enter your complete address"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-md text-base bg-gray-50 focus:outline-none focus:border-blue-400 focus:bg-blue-50 transition-colors resize-y min-h-[100px]"></textarea>
+                        <div id="addressError" class="hidden text-red-600 text-sm mt-1">
+                            Please enter your address
+                        </div>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="mb-6">
+                        <label for="phone" class="block mb-2 font-bold text-gray-700 text-sm">
+                            Phone Number <span class="text-red-600">*</span>
+                        </label>
+                        <input type="text" id="phone" name="phone" 
+                            placeholder="e.g., 08123456789"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-md text-base bg-gray-50 focus:outline-none focus:border-blue-400 focus:bg-blue-50 transition-colors">
+                        <div id="phoneError" class="hidden text-red-600 text-sm mt-1">
+                            Please enter a valid phone number (min. 10 digits)
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" 
+                        class="w-full py-4 bg-blue-400 text-white rounded-md text-lg font-bold cursor-pointer hover:bg-blue-600 transition-colors duration-300">
+                        Submit Registration
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-8 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="text-gray-700 text-sm mb-4 md:mb-0 text-center md:text-left">
+                <p>Copyright 2025 Takeshi Oka</p>
+                <p class="mt-2">
+                    大阪府大阪市北区同心2-11-12<br>
+                    学校法人岡学園　大阪文化国際学校<br>
+                    TEL:06-6882-1435
+                </p>
+                <div class="mt-4 space-x-4">
+                    <a href="https://fti.unai.edu/" class="text-blue-600 hover:text-blue-800 font-semibold">FTI UNAI →</a>
+                    <a href="https://unai.edu/" class="text-blue-600 hover:text-blue-800 font-semibold">UNAI Website →</a>
+                </div>
+            </div>
+            <div>
+                <img src="images/logopusatobkg.png" alt="Logo" class="w-16 h-16">
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const form = document.getElementById('registrationForm');
+        const successMessage = document.getElementById('successMessage');
+
+        function showError(errorId, inputId) {
+            const errorEl = document.getElementById(errorId);
+            const inputEl = document.getElementById(inputId);
+            errorEl.classList.remove('hidden');
+            inputEl.classList.add('border-red-600', 'bg-red-50');
+            inputEl.classList.remove('border-gray-300', 'bg-gray-50');
+        }
+
+        function hideError(errorId, inputId) {
+            const errorEl = document.getElementById(errorId);
+            const inputEl = document.getElementById(inputId);
+            errorEl.classList.add('hidden');
+            inputEl.classList.remove('border-red-600', 'bg-red-50');
+            inputEl.classList.add('border-gray-300', 'bg-gray-50');
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePhone(phone) {
+            const re = /^[0-9]+$/;
+            return re.test(phone) && phone.length >= 10;
+        }
+
+        document.getElementById('fullName').addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                hideError('fullNameError', 'fullName');
+            }
+        });
+
+        document.getElementById('nim').addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                hideError('nimError', 'nim');
+            }
+        });
+
+        document.getElementById('email').addEventListener('input', function() {
+            if (validateEmail(this.value)) {
+                hideError('emailError', 'email');
+            }
+        });
+
+        document.getElementById('faculty').addEventListener('change', function() {
+            if (this.value !== '') {
+                hideError('facultyError', 'faculty');
+            }
+        });
+
+        document.getElementById('dob').addEventListener('change', function() {
+            if (this.value !== '') {
+                hideError('dobError', 'dob');
+            }
+        });
+
+        const genderRadios = document.querySelectorAll('input[name="gender"]');
+        genderRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                hideError('genderError', 'male');
+            });
+        });
+
+        document.getElementById('address').addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                hideError('addressError', 'address');
+            }
+        });
+
+        document.getElementById('phone').addEventListener('input', function() {
+            if (validatePhone(this.value)) {
+                hideError('phoneError', 'phone');
+            }
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            successMessage.classList.add('hidden');
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const nim = document.getElementById('nim').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const faculty = document.getElementById('faculty').value;
+            const dob = document.getElementById('dob').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const address = document.getElementById('address').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            let isValid = true;
+
+            if (fullName === '') {
+                showError('fullNameError', 'fullName');
+                isValid = false;
+            } else {
+                hideError('fullNameError', 'fullName');
+            }
+
+            if (nim === '') {
+                showError('nimError', 'nim');
+                isValid = false;
+            } else {
+                hideError('nimError', 'nim');
+            }
+
+            if (!validateEmail(email)) {
+                showError('emailError', 'email');
+                isValid = false;
+            } else {
+                hideError('emailError', 'email');
+            }
+
+            if (faculty === '') {
+                showError('facultyError', 'faculty');
+                isValid = false;
+            } else {
+                hideError('facultyError', 'faculty');
+            }
+
+            if (dob === '') {
+                showError('dobError', 'dob');
+                isValid = false;
+            } else {
+                hideError('dobError', 'dob');
+            }
+
+            if (!gender) {
+                showError('genderError', 'male');
+                isValid = false;
+            } else {
+                hideError('genderError', 'male');
+            }
+
+            if (address === '') {
+                showError('addressError', 'address');
+                isValid = false;
+            } else {
+                hideError('addressError', 'address');
+            }
+
+            if (!validatePhone(phone)) {
+                showError('phoneError', 'phone');
+                isValid = false;
+            } else {
+                hideError('phoneError', 'phone');
+            }
+
+            if (isValid) {
+                successMessage.classList.remove('hidden');
+                window.scrollTo({top: 0, behavior: 'smooth'});
+                setTimeout(function() {
+                    form.reset();
+                    successMessage.classList.add('hidden');
+                }, 3000);
+            } else {
+                alert('Please fill in all required fields correctly!');
+            }
+        });
+    </script>
+</body>
+</html>
