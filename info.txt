@@ -1,2 +1,2 @@
-GitHub Repository URL   = 
+GitHub Repository URL   = https://github.com/Giventarou/FinalProjectWeb/blob/main/info.txt
 Custom Domain Name      = givenassersianturi.web.id
